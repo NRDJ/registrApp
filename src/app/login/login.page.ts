@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ export class LoginPage implements OnInit {
   user: '';
   password: '';
 
-  constructor() {
+  constructor(private router: Router) {
       this.formData = new FormGroup({
         user: new FormControl(),
         password: new FormControl()
@@ -24,17 +26,17 @@ export class LoginPage implements OnInit {
   }
 
   onSubmit() {
-    if (this.formData.value.user === 'docente' && this.formData.value.password === 'docente'){
-      alert('correct');
+    if (this.formData.value.user === 'docente' || this.formData.value.user === 'alumno') {
+      if (this.formData.value.user === this.formData.value.password) {
+        alert('Correct');
+        this.router.navigate(['/home']);
+      } else {
+        alert('Wrong password');
+      }
     } else {
-      alert('wrong');
+      alert('Wrong user');
     }
 
-    if (this.formData.value.user === 'alumno' && this.formData.value.password === 'alumno'){
-      alert('correct');
-    } else {
-      alert('wrong');
-    }
   }
 
 }
