@@ -26,17 +26,14 @@ export class LoginPage implements OnInit {
   }
 
   onSubmit() {
-    if (this.formData.value.user === 'docente' || this.formData.value.user === 'alumno') {
-      if (this.formData.value.user === this.formData.value.password) {
-        alert('Correct');
-        this.router.navigate(['/home']);
-      } else {
-        alert('Wrong password');
-      }
+    if (this.formData.value.user === 'docente' && this.formData.value.password === 'docente') {
+        alert('Credenciales correctas');
+        this.router.navigate(['/qr']);
+    } else if (this.formData.value.user === 'alumno' && this.formData.value.password === 'alumno'){
+        alert('Credenciales correctas');
+        this.router.navigate(['/qr-alumno']);
     } else {
-      alert('Wrong user');
+      alert('Credenciales incorrectas!');
     }
-
   }
-
 }
