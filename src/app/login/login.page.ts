@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -7,20 +9,31 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  private formData: FormGroup;
+  formData: FormGroup;
+  user: '';
+  password: '';
 
-  constructor() { }
+  constructor(private router: Router) {
+      this.formData = new FormGroup({
+        user: new FormControl(),
+        password: new FormControl()
+    });
+   }
 
 
   ngOnInit() {
 
-    this.formData = new FormGroup({
-      title: new FormControl()
-    });
   }
 
   onSubmit() {
-    console.log(this.formData.value);
+    if (this.formData.value.user === 'docente' && this.formData.value.password === 'docente') {
+        alert('Credenciales correctas');
+        this.router.navigate(['/qr']);
+    } else if (this.formData.value.user === 'alumno' && this.formData.value.password === 'alumno'){
+        alert('Credenciales correctas');
+        this.router.navigate(['/qr-alumno']);
+    } else {
+      alert('Credenciales incorrectas!');
+    }
   }
-
 }

@@ -26,14 +26,14 @@
     </ion-item> -->
         <h1>RegistrApp</h1>
         <h6>Ingresa tus credenciales</h6>
-    <form>
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
       <ion-item lines="full">
         <ion-label position="floating">User</ion-label>
-        <ion-input type="text" required></ion-input>
+        <ion-input formControlName="user" type="text" required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" required></ion-input>
+        <ion-input formControlName="password" type="password" required></ion-input>
       </ion-item>
       <ion-row>
         <ion-col>

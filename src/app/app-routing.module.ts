@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QRPageModule)
+  },
+  {
+    path: 'qr-alumno',
+    loadChildren: () => import('./qr-alumno/qr-alumno.module').then( m => m.QrAlumnoPageModule)
+  },
 ];
 
 @NgModule({
