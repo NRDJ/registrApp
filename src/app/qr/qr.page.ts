@@ -10,12 +10,17 @@ export class QRPage implements OnInit {
   title = 'app';
   elementType = 'url';
   value = 'Techiediaries';
+  generateQrCode = false;
 
   constructor(public navCtrl: NavController) {
 
    }
 
   ngOnInit() {
+  }
+
+  qrCode() {
+    this.generateQrCode = true;
   }
 
 }
