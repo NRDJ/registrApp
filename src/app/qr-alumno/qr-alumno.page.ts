@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router, NavigationExtras } from '@angular/router';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
-import { BarcodeScannerMock } from '../app.module';
 
 
 @Component({
