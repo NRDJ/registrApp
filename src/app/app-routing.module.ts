@@ -13,6 +13,27 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'qr',
+    redirectTo: 'qr',
+    pathMatch: 'full'
+  },
+
+  {
+    path: 'qr-alumno',
+    redirectTo: 'qr-alumno',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'e404',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -23,6 +44,11 @@ const routes: Routes = [
     path: 'qr-alumno',
     loadChildren: () => import('./qr-alumno/qr-alumno.module').then( m => m.QrAlumnoPageModule)
   },
+  {
+    path: 'e404',
+    loadChildren: () => import('./e404/e404.module').then( m => m.E404PageModule)
+  },
+
 ];
 
 @NgModule({
